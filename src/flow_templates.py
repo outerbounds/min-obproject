@@ -28,7 +28,7 @@ class NeuralNetworkFlow(FlowSpec):
                 # Dynamically create the Config for this subclass
                 cls.base_config = Config("config", default=config_path)
 
-    def _resolve_config(self):
+    def _resolve_nn_config(self):
         # Cast to dict because ConfigValue is immutable.
         train_args_config = dict(self.base_config["train_args"])
         if self.lr and self.lr is not None and self.lr != "null" and self.lr > 0:

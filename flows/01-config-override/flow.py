@@ -3,8 +3,10 @@ import os
 
 
 class ConfigOverrideTestFlow(FlowSpec):
-    
-    base_config = Config("config", default=os.path.join(os.path.dirname(__file__), "config.json"))
+
+    base_config = Config(
+        "config", default=os.path.join(os.path.dirname(__file__), "config.json")
+    )
     lr = Parameter(
         name="lr",
         default=None,
