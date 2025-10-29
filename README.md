@@ -172,6 +172,6 @@ Trigger from Outerbounds UI after overriding learning rate -> `CustomizedTrainin
 
 ## Requirements
 
-- Python ≥3.8, <3.13
+- Python 3.12
 - `uv pip install -e .` for local development
 - Published to PyPI for remote execution

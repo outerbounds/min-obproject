@@ -10,7 +10,7 @@ class ConfigOverrideTestFlow(ProjectFlow):
     )
     lr = Parameter(
         name="lr",
-        default=None,
+        default=0.001,
         type=float,
         help="Override for the lr value in config.json's train_args.",
         required=False,

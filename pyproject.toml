@@ -7,7 +7,7 @@ name = "min-obproject"
 version = "0.1.2"
 description = "Reusable Outerbounds project patterns."
 readme = "README.md"
-requires-python = ">=3.8,<3.13"
+requires-python = ">=3.8"
 dependencies = [
     "ob-project-utils>=0.1.45",
     "outerbounds>=0.10.20",
