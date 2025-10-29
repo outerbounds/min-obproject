@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "min-obproject"
+version = "0.1.1"
+description = "Reusable Outerbounds project patterns."
+readme = "README.md"
+requires-python = ">=3.8,<3.13"
+dependencies = [
+    "ob-project-utils>=0.1.45",
+    "outerbounds>=0.10.20",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.1.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
