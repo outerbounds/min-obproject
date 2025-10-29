@@ -35,8 +35,7 @@ jobs:
     - name: Install dependencies
       run: |
         python3 -m pip install -U requests
-        python3 -m pip install outerbounds pyyaml
-        python3 -m pip install -U ob-project-utils
+        python3 -m pip install -U min-obproject pyyaml
     - name: Configure Outerbounds
       run: |
         PROJECT_NAME=$(yq .project obproject.toml)
