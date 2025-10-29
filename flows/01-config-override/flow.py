@@ -1,8 +1,9 @@
-from metaflow import FlowSpec, step, Config, Parameter
+from metaflow import step, Config, Parameter
+from obproject import ProjectFlow
 import os
 
 
-class ConfigOverrideTestFlow(FlowSpec):
+class ConfigOverrideTestFlow(ProjectFlow):
 
     base_config = Config(
         "config", default=os.path.join(os.path.dirname(__file__), "config.json")
