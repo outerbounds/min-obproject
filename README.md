@@ -20,7 +20,7 @@ python flows/02-projectflow-inheritance/flow.py --environment=fast-bakery run --
 
 - **Base flow + configs with overrides**: `NeuralNetworkFlow` template automatically loads a standard `config.json` expected to be present for each inheriting flow. Override specific config values via CLI Parameters without flow boilerplate.
 - **Reusable templates**: Write the flow logic once, inherit across flows and projects.
-- **Fast changing _and_ consistent dependencies**: Toggle `@pypi_base` for local dev (editable install) vs. remote (PyPI install).
+- **Fast changing _and_ consistent dependencies**: Toggle `@pypi` for local dev (editable install) vs. remote (PyPI install).
 
 ## The `@pypi_base` Toggle Pattern
 
