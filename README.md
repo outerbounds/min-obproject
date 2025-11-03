@@ -12,7 +12,7 @@ uv pip install -e .
 # 2. Run example flow locally
 python flows/02-projectflow-inheritance/flow.py run --lr 0.5
 
-# 3. Run on Kubernetes (requires @pypi_base uncommented + published to PyPI)
+# 3. Run on Kubernetes (requires `@pypi` or `@pypi_base` uncommented + published to PyPI)
 python flows/02-projectflow-inheritance/flow.py --environment=fast-bakery run --with kubernetes --lr 0.5
 ```
 
@@ -26,7 +26,7 @@ python flows/02-projectflow-inheritance/flow.py --environment=fast-bakery run --
 
 **Core concept**: Comment/uncomment one decorator to switch between local and remote execution.
 
-**Important**: `@pypi_base` requires `--environment=fast-bakery` flag. Local runs without the decorator don't need this flag.
+**Important**: `@pypi` or `@pypi_base` requires `--environment=fast-bakery` flag. Local runs without the decorator don't need this flag.
 
 **Local development** (decorator commented out):
 ```python
@@ -40,14 +40,14 @@ class MyFlow(ProjectFlow, NeuralNetworkFlow):
 
 **Remote execution** (decorator uncommented + `--environment=fast-bakery`):
 ```python
-@pypi_base(packages={"min-obproject": ""})  # "" = latest, or pin: "0.1.1"
+@pypi_base(packages={"min-obproject": ""})  # "" = latest, or pin a la "0.1.1"
 class MyFlow(ProjectFlow, NeuralNetworkFlow):
     ...
 ```
 - Installs from PyPI in remote containers
 - Requires package published to PyPI, as demonstrated with `uv publish` in this document
 - Use `""` for latest or pin to specific version for stability
-- `--environment=fast-bakery` enables `@pypi_base` decorator
+- `--environment=fast-bakery` enables `@pypi` or `@pypi_base` decorator
 
 ## Repository Structure
 
@@ -109,10 +109,11 @@ from src.flow_templates import NeuralNetworkFlow
 # Toggle for local/remote execution
 # @pypi_base(packages={"min-obproject": ""})
 class CustomizedTrainingFlow(ProjectFlow, NeuralNetworkFlow):
-    
+
+    @pypi(packages={"min-obproject": "0.1.0"})
     @step
     def start(self):
-        self._resolve_config()  # Inherited method
+        self._resolve_nn_config()  # Inherited method
         self.next(self.end)
     
     @step
